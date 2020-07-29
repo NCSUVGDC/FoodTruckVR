@@ -60,10 +60,10 @@ GraphicsSettings:
       useReflectionProbeBlending: 0
       useHDR: 0
       useDetailNormalMap: 0
-      useCascadedShadowMaps: 1
+      useCascadedShadowMaps: 0
       prefer32BitShadowMaps: 0
       enableLPPV: 0
-      useDitherMaskForAlphaBlendedShadows: 1
+      useDitherMaskForAlphaBlendedShadows: 0
     m_Automatic: 0
   - serializedVersion: 5
     m_BuildTarget: 1
@@ -94,10 +94,10 @@ GraphicsSettings:
       useReflectionProbeBlending: 0
       useHDR: 0
       useDetailNormalMap: 0
-      useCascadedShadowMaps: 1
+      useCascadedShadowMaps: 0
       prefer32BitShadowMaps: 0
       enableLPPV: 0
-      useDitherMaskForAlphaBlendedShadows: 1
+      useDitherMaskForAlphaBlendedShadows: 0
     m_Automatic: 0
   - serializedVersion: 5
     m_BuildTarget: 7
@@ -111,10 +111,10 @@ GraphicsSettings:
       useReflectionProbeBlending: 0
       useHDR: 0
       useDetailNormalMap: 0
-      useCascadedShadowMaps: 1
+      useCascadedShadowMaps: 0
       prefer32BitShadowMaps: 0
       enableLPPV: 0
-      useDitherMaskForAlphaBlendedShadows: 1
+      useDitherMaskForAlphaBlendedShadows: 0
     m_Automatic: 0
   - serializedVersion: 5
     m_BuildTarget: 1

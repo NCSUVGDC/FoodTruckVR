@@ -5,7 +5,7 @@ using UnityEditor; //needed for prefab schenanigans
 
 public class itemSpawner : MonoBehaviour
 {
-    public GameObject spawnLocation;
+    public GameObject[] spawnLocations;
     private GameObject spawnedItem;
 
     public bool autoSpawn = true;
@@ -47,11 +47,42 @@ public class itemSpawner : MonoBehaviour
             
         }
     }
-    
+
     //Fixed update happens before collision events and regular update
     private void FixedUpdate()
     {
         itemPresence = false; //this will be set to true if the object stayed inside the trigger
+
+        if (isStorage)
+        {
+            //Debug.Log(associatedDoor.transform.rotation.eulerAngles.y - doorBaseRot);
+
+            float deltaRot = Mathf.Abs(associatedDoor.transform.rotation.eulerAngles.y - doorBaseRot);
+
+            if (deltaRot < 2 || deltaRot > 358) //if the delta between the start angle and current angle is less than 2 degrees closed tolerance
+            {
+                doorOpen = false; //setting this here because otherwise it gets stuck open or closed with the per frame check
+                //Debug.Log("door is closed");
+
+            }
+            else
+            {
+                doorOpen = true;
+
+                //Debug.Log("door is open");
+            }
+        }
+
+        if (autoSpawn) //dont bother updating the time variable if we dont have to
+        {
+            spawnTimeLeft -= Time.deltaTime;
+            if (spawnTimeLeft < 0)
+            {
+                checkSpawn();
+                spawnTimeLeft = spawnCooldown;
+            }
+        }
+
     }
 
     private void OnTriggerStay(Collider other) //using this to catch objects destroyed within the trigger that dont call OnTriggerExit 
@@ -105,9 +136,11 @@ public class itemSpawner : MonoBehaviour
         spawnedItem = Instantiate(prefabToSpawn) as GameObject; //Casting it to its own variable to count how many are in the trigger
         spawnedItem.name = prefabToSpawn.name; //stupid stupid stupid stupid stupid stupid stupid stupid stupid stupid stupid 
 
-        if (spawnLocation != null)
+        if (spawnLocations != null)
         {
-            spawnedItem.transform.position = spawnLocation.transform.position;
+            int rngspawnindex = Mathf.RoundToInt(Random.Range(0, spawnLocations.Length) ); //select a random spawn location index
+
+            spawnedItem.transform.position = spawnLocations[rngspawnindex].transform.position; //spawn the item at that randomly chosen spawn location object
         }
         else
         {
@@ -125,40 +158,5 @@ public class itemSpawner : MonoBehaviour
             spawnedItem.GetComponent<Rigidbody>().AddForce(forceDirection * forceMagnitude);
         }
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (isStorage)
-        {
-            //Debug.Log(associatedDoor.transform.rotation.eulerAngles.y - doorBaseRot);
-
-            float deltaRot = Mathf.Abs(associatedDoor.transform.rotation.eulerAngles.y - doorBaseRot);
-
-            if ( deltaRot < 2 || deltaRot > 358) //if the delta between the start angle and current angle is less than 2 degrees closed tolerance
-            {
-                doorOpen = false; //setting this here because otherwise it gets stuck open or closed with the per frame check
-                //Debug.Log("door is closed");
-
-            }
-            else
-            {
-                doorOpen = true;
-
-                //Debug.Log("door is open");
-            }
-        }
-
-        if (autoSpawn) //dont bother updating the time variable if we dont have to
-        {
-            spawnTimeLeft -= Time.deltaTime;
-            if (spawnTimeLeft < 0)
-            {
-                checkSpawn();
-                spawnTimeLeft = spawnCooldown;
-            }
-        }
-        
-    }
+    }    
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4050502012734713261}
   m_Layer: 0
-  m_Name: spawnLocation
+  m_Name: spawnLocation0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,10 +136,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f0b70c5e7a58a4caa490bec0066ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnLocation: {fileID: 4050502012734713258}
+  spawnLocations:
+  - {fileID: 4050502012734713258}
+  autoSpawn: 1
+  hasItem: 0
   maxSpawned: 3
   prefabToSpawn: {fileID: 4657259452914695939, guid: aa2542f4a6d22ee4f9e2d6a900c75aea,
     type: 3}
   spawnCooldown: 3
-  isStorange: 0
+  isStorage: 0
   associatedDoor: {fileID: 0}
+  applyForce: 0
+  forceMagnitude: 0
+  forceDirection: {x: 0, y: 0, z: 0}
