@@ -65,7 +65,7 @@ public class Customer : MonoBehaviour
                 OrderCorrect = false;
             }
 
-            for (int i = 0; i == 3; i++) //test 4 times for each of the potential slots
+            for (int i = 0; i < 4; i++) //test 4 times for each of the potential slots
             {
                 if (tacoOrder_given[i] != tacoOrder_customer[i])
                 OrderCorrect = false;
@@ -152,12 +152,15 @@ public class Customer : MonoBehaviour
             chipOrder_customer.Sort();
             chipOrder_given.Sort();
 
+            Debug.Log("customer: " + chipOrder_customer[0] + ", " + chipOrder_customer[1]);
+            Debug.Log("given: " + chipOrder_given[0] + ", " + chipOrder_given[1]);
+
             OrderCorrect = true;
             if (!currentOrder.chipOrder)
             {
                 OrderCorrect = false;
             }
-            for (int i = 0; i == 1; i++) //test 2 times for each of the potential slots
+            for (int i = 0; i < 2; i++) //test 2 times for each of the potential slots
             {
                 if (chipOrder_given[i] != chipOrder_customer[i])
                     OrderCorrect = false;

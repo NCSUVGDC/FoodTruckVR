@@ -6,7 +6,7 @@ public class FPSDisplay : MonoBehaviour
 {
     private float currentFPS = 0;
 
-    public float hudRefreshRate = 1f;
+    public float hudRefreshRate = 0.25f;
     private float timer;
 
     public GameObject textMeshObject;
