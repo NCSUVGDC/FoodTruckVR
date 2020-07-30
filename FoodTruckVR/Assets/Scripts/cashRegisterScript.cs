@@ -19,10 +19,11 @@ public class cashRegisterScript : MonoBehaviour
     {
         if (toDelete != null)
         {
-            Destroy(toDelete);
+            toDelete.transform.position = new Vector3(0f, -20000f, 0f); //teleport the object very far away to trigger Exit collision and trigger script functions
+            Destroy(toDelete, 0.1f); //slight delay for time to trigger the function
         }
     }
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Cash")) // && other.gameObject.GetComponent<OVRGrabbable>().isGrabbed) //tags are case sensetive and do nothing unless it's being grabbed.
         {

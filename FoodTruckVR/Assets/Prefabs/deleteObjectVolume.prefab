@@ -105,3 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fffdc4e2a0d20848a5d60818d318e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeletableTags:
+  - Deletable
+  - Taco
+  - ChipBowl
+  - Refill
+  - Cash

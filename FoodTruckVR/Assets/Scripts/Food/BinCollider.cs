@@ -17,7 +17,8 @@ public class BinCollider : MonoBehaviour
     {
         if (toDelete != null)
         {
-            Destroy(toDelete);
+            toDelete.transform.position = new Vector3(0f, -20000f, 0f); //teleport the object very far away to trigger Exit collision and trigger script functions
+            Destroy(toDelete, 0.1f); //slight delay for time to trigger the function
         }
     }
 
