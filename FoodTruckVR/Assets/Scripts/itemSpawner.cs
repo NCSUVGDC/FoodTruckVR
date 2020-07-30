@@ -11,7 +11,7 @@ public class itemSpawner : MonoBehaviour
     public bool autoSpawn = true;
     public int hasItem = 0;
     public int maxSpawned = 3;
-    private bool itemPresence = false;
+    //private bool itemPresence = false;
 
     public GameObject prefabToSpawn;
 
@@ -51,7 +51,7 @@ public class itemSpawner : MonoBehaviour
     //Fixed update happens before collision events and regular update
     private void FixedUpdate()
     {
-        itemPresence = false; //this will be set to true if the object stayed inside the trigger
+        //itemPresence = false; //this will be set to true if the object stayed inside the trigger
 
         if (isStorage)
         {
@@ -85,13 +85,13 @@ public class itemSpawner : MonoBehaviour
 
     }
 
-    private void OnTriggerStay(Collider other) //using this to catch objects destroyed within the trigger that dont call OnTriggerExit 
-    {
-        if (other.name == prefabToSpawn.name)
-        {
-            itemPresence = true;
-        }
-    }
+    //private void OnTriggerStay(Collider other) //using this to catch objects destroyed within the trigger that dont call OnTriggerExit 
+    //{
+    //    if (other.name == prefabToSpawn.name)
+    //    {
+    //        itemPresence = true;
+    //    }
+    //}
 
     private void OnTriggerExit(Collider other)
     {
@@ -107,6 +107,8 @@ public class itemSpawner : MonoBehaviour
         {
             hasItem -= 1;
             //Debug.Log("removing 1 item" + other.gameObject);
+
+            other.name = "ItemExitedTrigger"; //stop counting this item if it re-enters the trigger because it breaks the counter
         }
     }
 

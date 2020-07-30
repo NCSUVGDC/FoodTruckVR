@@ -15,6 +15,9 @@ public class OrderBox : MonoBehaviour
     public IngredientType tacoSlot3 = IngredientType.None;
     public IngredientType tacoSlot4 = IngredientType.None;
 
+    public int chipsTotal = 0;
+    public IngredientType chipSlot1 = IngredientType.None;
+    public IngredientType chipSlot2 = IngredientType.None;
     public string chipSlot = "None";
 
     public Material mat_shell;
@@ -106,8 +109,6 @@ public class OrderBox : MonoBehaviour
         {
             chipOrder = true;
             materials[6] = mat_bowl;
-            materials[7] = mat_chips;
-
         }
 
         /*newRand(2);
@@ -147,19 +148,26 @@ public class OrderBox : MonoBehaviour
         if (chipOrder)
         {
             newRand(2);
-            //if (tempRand == 3)
-                //chipSlot = "Salsa";
-            if (tempRand == 2)
-            {
-                chipSlot = "Queso";
-                materials[8] = mat_queso;
-            }
+            chipsTotal = tempRand;
+
+            if (chipsTotal >= 2)
+                chipSlot2 = newChips(3, 3);
+            materials[8] = topingMat(chipSlot2);
+            if (chipsTotal >= 1)
+                chipSlot1 = newChips(7, 1);
+            materials[7] = topingMat(chipSlot1);
+
+            //if (tempRand == 2)
+            //{
+            //    chipSlot = "Queso";
+            //    materials[8] = mat_queso;
+            //}
                 
-            if (tempRand == 1)
-            {
-                chipSlot = "None";
-                materials[8] = mat_chips;
-            }
+            //if (tempRand == 1)
+            //{
+            //    chipSlot = "None";
+            //    materials[8] = mat_chips;
+            //}
         }
 
         //for mats
@@ -242,9 +250,31 @@ public class OrderBox : MonoBehaviour
             case IngredientType.Tomato:
                 tempMat = mat_tomato;
                 break;
+            case IngredientType.Chip:
+                tempMat = mat_chips;
+                break;
+            case IngredientType.Queso:
+                tempMat = mat_queso;
+                break;
         }
 
         return tempMat;
+    }
+
+    public IngredientType newChips(int chiMax, int queMax)
+    {
+        //rand int from 0 to max
+        tempRand = Random.Range(0, chiMax + queMax);
+        tempRand += 1;
+
+        IngredientType newChips = IngredientType.None;
+
+        if (tempRand <= chiMax)
+            newChips = IngredientType.Chip;
+        if (chiMax < tempRand && tempRand <= (chiMax + queMax))
+            newChips = IngredientType.Queso;
+
+        return newChips;
     }
 
     public void resetVars()
@@ -260,7 +290,11 @@ public class OrderBox : MonoBehaviour
         tacoSlot4 = IngredientType.None;
 
         chipSlot = "None";
-}
+
+        chipsTotal = 0;
+        chipSlot1 = IngredientType.None;
+        chipSlot2 = IngredientType.None;
+    }
 
     private void Update()
     {

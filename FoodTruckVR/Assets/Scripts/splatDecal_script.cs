@@ -78,7 +78,7 @@ public class splatDecal_script : MonoBehaviour
 
                 spawnedDecal.transform.SetParent(info.gameObject.transform); //so that it doesnt float midair for things that move
 
-                Debug.Log(hitInfo.normal);
+                //Debug.Log(hitInfo.normal);
 
                 alreadyHit = true; //make sure it only makes one decal
             }

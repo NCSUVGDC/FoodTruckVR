@@ -23,7 +23,7 @@ public class cashRegisterScript : MonoBehaviour
             Destroy(toDelete, 0.1f); //slight delay for time to trigger the function
         }
     }
-    void OnTriggerEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Cash")) // && other.gameObject.GetComponent<OVRGrabbable>().isGrabbed) //tags are case sensetive and do nothing unless it's being grabbed.
         {
