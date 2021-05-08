@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7783563907431897955
+--- !u!1 &4473424640849742680
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6512099484750670192}
-  - component: {fileID: 2811540591238599494}
-  - component: {fileID: 8374461300215230399}
-  - component: {fileID: 5826920519736069024}
-  - component: {fileID: 6908890730743764075}
-  - component: {fileID: 6492691508728266542}
-  - component: {fileID: 7638172216079507905}
+  - component: {fileID: 2602011762640778597}
+  - component: {fileID: 7312669356912151349}
+  - component: {fileID: 8603271615190309415}
   m_Layer: 0
-  m_Name: LettucePhys
+  m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6512099484750670192
+--- !u!4 &2602011762640778597
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7783563907431897955}
-  m_LocalRotation: {x: -0.37255737, y: -0.5181035, z: -0.49474862, w: 0.58990985}
-  m_LocalPosition: {x: 0.8311, y: 0.4595, z: -0.6566}
-  m_LocalScale: {x: 100.00001, y: 100, z: 99.99999}
+  m_GameObject: {fileID: 4473424640849742680}
+  m_LocalRotation: {x: 0.100184694, y: -0.12901287, z: -0.008551307, w: 0.98653215}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 6512099484750670192}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2811540591238599494
+  m_LocalEulerAnglesHint: {x: 11.272, y: -15.147, z: -2.4970002}
+--- !u!33 &7312669356912151349
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7783563907431897955}
+  m_GameObject: {fileID: 4473424640849742680}
   m_Mesh: {fileID: -6684929905852619409, guid: 65f8f0af3ebe31044ac9cb1bcc9c5d49, type: 3}
---- !u!23 &8374461300215230399
+--- !u!23 &8603271615190309415
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7783563907431897955}
+  m_GameObject: {fileID: 4473424640849742680}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -82,6 +78,41 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &7783563907431897955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6512099484750670192}
+  - component: {fileID: 5826920519736069024}
+  - component: {fileID: 6908890730743764075}
+  - component: {fileID: 6492691508728266542}
+  - component: {fileID: 7638172216079507905}
+  m_Layer: 0
+  m_Name: LettucePhys
+  m_TagString: Deletable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6512099484750670192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7783563907431897955}
+  m_LocalRotation: {x: -0.70710576, y: -0, z: -0, w: 0.70710784}
+  m_LocalPosition: {x: 0.8311, y: 0.4595, z: -0.6566}
+  m_LocalScale: {x: 100.00001, y: 100, z: 99.99999}
+  m_Children:
+  - {fileID: 2602011762640778597}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!114 &5826920519736069024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,5 +172,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.00080224953, y: 0.0015341787, z: 0.0018970189}
-  m_Center: {x: -0.000039178016, y: -0.000003748282, z: 0.000034055385}
+  m_Size: {x: 0.0003675251, y: 0.0012144671, z: 0.0017255194}
+  m_Center: {x: 0.000066733606, y: 0.0000035225598, z: 0.00003427178}
